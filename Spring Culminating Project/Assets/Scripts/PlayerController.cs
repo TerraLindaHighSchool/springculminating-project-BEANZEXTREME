@@ -15,10 +15,12 @@ public class PlayerController : MonoBehaviour
     private int minuteCount;
     private int hourCount;
 
+    public int health = 100;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -38,8 +40,13 @@ public class PlayerController : MonoBehaviour
 
         //neyeyeroeorer
         InitiateZoomies();
+
+        //yeah um the is too fast for physics so lol
+        Locked();
+        test();
+        Debug.Log(distanceTraveled);
     }
-   
+
     //call this on update off interweb
     public void UpdateTimerUI()
     {
@@ -62,6 +69,32 @@ public class PlayerController : MonoBehaviour
     public void InitiateZoomies()
     {
         //in testing find some better maths later
-        speed += secondsCount;
+        speed += secondsCount / 5;
+        //for example make 5 the difficulty level or something
+    }
+
+
+    //you can hide but you cant run
+    public void Locked()
+    {
+        //follow this format
+        /*
+        if(transform.position.x < -10)
+        {
+            transform.position = new Vector3(-10, transform.position.y, transform.position.z);
+        }
+        */
+    }
+
+
+    //test
+    private Vector3 lastPosition;
+    private float distanceTraveled;
+
+    public float test()
+    {
+        distanceTraveled += Vector3.Distance(transform.position, lastPosition);
+        lastPosition = transform.position;
+        return distanceTraveled;
     }
 }
