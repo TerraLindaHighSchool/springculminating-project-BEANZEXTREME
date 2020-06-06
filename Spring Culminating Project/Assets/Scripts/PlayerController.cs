@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class PlayerController : MonoBehaviour
 {
@@ -17,6 +18,10 @@ public class PlayerController : MonoBehaviour
 
     public int health = 100;
 
+    public TextMeshProUGUI distance;
+
+    public SpawnManager fightMe;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -43,8 +48,11 @@ public class PlayerController : MonoBehaviour
 
         //yeah um the is too fast for physics so lol
         Locked();
-        test();
-        Debug.Log(distanceTraveled);
+
+        //distance and its related functions/tasks
+        DistanceOperations();
+        //Debug.Log(distanceTraveled);
+        distance.text = "how far gone " + distanceTraveled;
     }
 
     //call this on update off interweb
@@ -78,23 +86,24 @@ public class PlayerController : MonoBehaviour
     public void Locked()
     {
         //follow this format
-        /*
+        
         if(transform.position.x < -10)
         {
             transform.position = new Vector3(-10, transform.position.y, transform.position.z);
         }
-        */
+        
     }
 
 
     //test
     private Vector3 lastPosition;
-    private float distanceTraveled;
+    public float distanceTraveled;
 
-    public float test()
+    public float DistanceOperations()
     {
         distanceTraveled += Vector3.Distance(transform.position, lastPosition);
         lastPosition = transform.position;
         return distanceTraveled;
+        //distance.text = "how far gone " + distanceTraveled;
     }
 }

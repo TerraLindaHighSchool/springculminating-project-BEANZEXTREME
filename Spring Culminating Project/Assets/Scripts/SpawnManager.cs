@@ -5,8 +5,10 @@ using UnityEngine;
 public class SpawnManager : MonoBehaviour
 {
     public GameObject[] objectPrefabs;
+    //how long before staart spawning
     private float spawnDelay = 2;
-    private float spawnInterval = 1.5f;
+    //how long before each spawn
+    public float spawnInterval = 1.5f;
 
    // private PlayerControllerX playerControllerScript;
 

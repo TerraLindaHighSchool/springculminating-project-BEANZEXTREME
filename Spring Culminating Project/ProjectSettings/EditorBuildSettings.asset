@@ -4,5 +4,8 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/Get to Work or Die Trying!.unity
+    guid: d97b9248538e9be4e9b74677d1c39065
   m_configObjects: {}

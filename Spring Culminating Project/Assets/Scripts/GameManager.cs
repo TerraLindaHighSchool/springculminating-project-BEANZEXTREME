@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
 {
     private float secondsCount;
     public TextMeshProUGUI timePassesSlowly;
+    public PlayerController vroomies;
     
     // Start is called before the first frame update
     void Start()
@@ -19,5 +20,6 @@ public class GameManager : MonoBehaviour
     {
         secondsCount += Time.deltaTime;
         timePassesSlowly.text = "Time Wasted: " + secondsCount;
+        Debug.Log(vroomies.distanceTraveled);
     }
 }
